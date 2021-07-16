@@ -18,6 +18,8 @@ namespace Kusto.Language.Parsing
         public static readonly Parser<LexicalToken, DirectiveBlock> DirectiveBlock =
             Rule(
                 RequiredToken(SyntaxKind.DirectiveToken),
+            
+            
                 List(AnyTokenButEnd), // consumes all remaining tokens
                 Optional(Token(SyntaxKind.EndOfTextToken)),
                 (directive, list, end) =>
